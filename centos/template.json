@@ -156,7 +156,14 @@
                             "publicKeys": [
                                 {
                                     "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-                                    "keyData": "[parameters('adminPublicKey')]"
+                                    "keyData": {
+                                        "reference":  {
+                                           "keyVault":  {
+                                             "id":  "/subscriptions/18e0446d-4bb1-4f97-8835-737a2516df41/resourceGroups/RGLab1/providers/Microsoft.KeyVault/vaults/RGLab1KeyVault"
+                                             },
+                                           "secretName":  "sshpublic"
+                                        }
+                                      }
                                 }
                             ]
                         }
